@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+  web:
+    build: .
+    command: sh -c "uvicorn yaraAPI:app --host 0.0.0.0 --port 8000 --log-config logging_config.ini"
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./yara_api.db:/app/yara_api.db
